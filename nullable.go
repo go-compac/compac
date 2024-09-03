@@ -12,9 +12,14 @@ func NlFromPtr[T any](ptr *T) Nl[T] {
 	if ptr == nil {
 		return Nl[T]{}
 	}
-	return Nl[T]{Data: *ptr, Valid: true}
+
+	return Nl[T]{
+		Data:  *ptr,
+		Valid: true,
+	}
 }
 
+// NlFromValue converts a value to a Nl[T] type. Valid always be TRUE
 func NlFromValue[T any](value T) Nl[T] {
 	return Nl[T]{
 		Data:  value,
